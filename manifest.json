@@ -1,0 +1,7 @@
+{
+  "name": "Simple Meeting On Web",
+  "short_name": "SMOW",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

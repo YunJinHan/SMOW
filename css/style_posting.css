@@ -1,0 +1,161 @@
+.add_post {
+    margin: auto;
+    margin-top: 4%;
+    width: 90%;
+    height: 20%;
+    border-radius: 10pt;
+    background-color: #dbe4ff;
+}
+
+.show_post {
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+    height: 72%;
+    border-radius: 10pt;
+    background-color: #e0e6f7;
+    overflow: auto;
+}
+
+.add_post_area {
+    width: 80%;
+    height: 100%;
+}
+
+.full_post_area {
+    margin: auto;
+    margin-left: 8%;
+    text-align: center;
+}
+
+#title_post {
+    float:left;
+    width: calc(60%);
+    margin-top: 0.5%;
+    margin-left: 5%;
+    margin-bottom: 0;
+}
+
+#title_post_input , #title_post_label {
+    width: calc(60%);
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#message_post {
+    float:left;
+    width: calc(80%);
+    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+
+#message_post_input , #message_post_label{
+    resize: none;
+    width: calc(80%);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+#submit_post {
+    width: calc(15%);
+    margin-top: calc(3%);
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    background-size: 32px 32px;
+    border-radius: 32px;
+    border: 2px white solid;
+    margin-right: 10px;
+    background-image: url('./silhouette.jpg');
+}
+
+/* Post */
+#recent-posts-list {
+    margin: auto;
+}
+.posts-container {
+    margin: auto;
+}
+.post {
+    margin: 7.5px;
+}
+
+.post .mdl-card {
+    height: 100%;
+    top: 0;
+    left: 0;
+    min-height: 0;
+}
+.post .header {
+    padding: 10px;
+    width: calc(100% - 100px);
+    display: inline-block;
+}
+.post .star-count {
+    color: #444;
+    padding: 0 10px 0 5px;
+    font-weight: bold;
+    display: inline-block;
+    top: -5px;
+    position: relative;
+}
+.post .comments-container {
+    padding: 15px 10px 0 10px;
+}
+.post .text {
+    padding: 0 10px;
+    color: grey;
+}
+.post .comments-container .text {
+    margin-left: 5px;
+    color: #444;
+    transition: all 0.2s;
+}
+.post .add-comment{
+    flex-grow: 1;
+    padding: 0 10px;
+    margin-bottom: -10px;
+}
+.post .add-comment.mdl-textfield {
+    width: 100%;
+}
+.post .star {
+    position: absolute;
+    top: 4px;
+    right: 0;
+}
+.post .star .material-icons {
+    font-size: 35px;
+    color: #ffcb0c;
+    cursor: pointer;
+}
+.post .star .material-icons:HOVER {
+    opacity: 0.6;
+}
+.post .star .starred {
+    display: none;
+}
+.post .username {
+    margin-left: 2px;
+}
+#post_userNmae , .commnetUsername {
+    color: #0094ff !important;
+}
+#deletePost {
+    margin-top: 25px;
+    margin-right: 0px;
+    margin-left: 35px;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: #98bbff;
+}

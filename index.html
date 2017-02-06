@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Learn how to use the Firebase platform on the Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMOW</title>
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Friendly Chat">
+    <meta name="theme-color" content="#303F9F">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Friendly Chat">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="msapplication-navbutton-color" content="#303F9F">
+
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <!-- App Styling -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="css/style_chatting.css">
+    <link rel="stylesheet" href="css/style_posting.css">
+
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <!-- Header section containing logo -->
+        <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-400">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+                <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+                    <h3><i class="material-icons">chat_bubble_outline</i> Simple Meeting On Web</h3>
+                </div>
+                <div id="user-container">
+                    <div hidden id="user-pic"></div>
+                    <div hidden id="user-name"></div>
+                    <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Sign-out</button>
+                    <button hidden id="sign-in-google" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white"><i class="material-icons">account_circle</i>Google</button>
+                    <button hidden id="sign-in-facebook" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white"><i class="material-icons">account_circle</i>FaceBook</button>
+                    <button hidden id="sign-in-github" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white"><i class="material-icons">account_circle</i>Github</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="mainFrame">
+            <div id="messages-card-container">
+                <div id="messages-card">
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-900">
+
+                        <div id="messages">
+                            <span id="message-filler"></span>
+                        </div>
+
+                        <form id="message-form" action="#">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="message">
+                                <label class="mdl-textfield__label" for="message">Message...</label>
+                            </div>
+                            <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--blue-400">Send</button>
+                        </form>
+                        <form id="image-form" action="#">
+                            <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+                            <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--green-500 mdl-color-text--green-100"><i class="material-icons">image</i></button>
+                        </form>
+                    </div>
+                </div>
+                <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button"></button>
+                </div>
+            </div>
+            <div id="post-card-container">
+                <div class="add_post">
+                    <div class="full_post_area">
+                    <form id="post-form" action="#">
+                        <div class="add_post_area">
+                              <div id="title_post" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="title_post_input" class="mdl-textfield__input" type="text">
+                                <label id="title_post_label" class="mdl-textfield__label"> Post Title...</label>
+                              </div>
+                              <div id="message_post" class="mdl-textfield mdl-js-textfield">
+                                <textarea id="message_post_input" class="mdl-textfield__input" type="text" rows= "2" ></textarea>
+                                <label id="message_post_label" class="mdl-textfield__label"> Post Content...</label>
+                              </div>
+                        </div>
+                        <button id="submit_post" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Add</button>
+                    </form>
+                    </div>
+                </div>
+                <div class="show_post">
+                    <section class="mdl-grid content" id="recent-posts-list">
+                        <div id="posts_List" class="posts-container mdl-cell mdl-cell--12-col mdl-grid"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Firebase js-->
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDYpl2PD76d0b6_8W4FXthQn6jVauDfj04",
+    authDomain: "simple-meeting-on-web.firebaseapp.com",
+    databaseURL: "https://simple-meeting-on-web.firebaseio.com",
+    storageBucket: "simple-meeting-on-web.appspot.com",
+    messagingSenderId: "804446283210"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="js/smow_main.js"></script>
+<script src="js/smow_login.js"></script>
+<script src="js/smow_chatting.js"></script>
+<script src="js/smow_posting.js"></script>
+
+</html>
