@@ -2,9 +2,17 @@ Simple Meeting On Web
 =============
 
 It's based on Firebase Server.
+Google / Facebook / Github etc .. Social Login.
+-------------
+![main](./screenshot/main.js)
 
-Realtime Chatting && Posting 기능.
+Chatting based on real time database.
+-------------
+![chatting](./screenshot/chatting.js)
 
-Google / Facebook / Github etc .. Login 기능.
+Posting (comment,star..) based on real time database.
+-------------
+![posting](./screenshot/posting.js)
+
 
 => https://simple-meeting-on-web.firebaseapp.com
